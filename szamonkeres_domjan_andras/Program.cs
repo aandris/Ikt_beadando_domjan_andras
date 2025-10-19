@@ -37,29 +37,32 @@ namespace szamonkeres_domjan_andras
             int edzescel=int.Parse(Console.ReadLine());
 
 
-            string edzesfajta="";
+            string edzestipus="";
             int alaphossz=0;
 
             switch(edzescel)
             {
                 case 1:
-                    edzesfajta = "Futás/Kerékpározás";
+                    edzestipus = "Futás/Kerékpározás";
                     alaphossz = 45;
                     break;
                 case 2:
-                    edzesfajta = "Súlyzós edzés";
+                    edzestipus = "Súlyzós edzés";
                     alaphossz = 60;
                     break;
                 case 3:
-                    edzesfajta = "Intervall edzés";
+                    edzestipus = "Intervall edzés";
                     alaphossz = 30;
                     break;
                 default:
-                    edzesfajta = "Érvénytelen cél";
+                    edzestipus = "Érvénytelen cél";
                     alaphossz = 0;
                     Console.WriteLine("Kérlek válassz ezek közül (1 - Állóképesség, 2 - Izomtömeg növelése, 3 - Fogyás):  ");
                     break;
             }
+
+            Console.WriteLine($"Edzés típusa: {edzestipus}");
+            Console.WriteLine($"Alap edzésidő (perc): {alaphossz}");
         }
 }
 }
