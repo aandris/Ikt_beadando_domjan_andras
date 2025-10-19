@@ -23,7 +23,7 @@ namespace szamonkeres_domjan_andras
             while (true)
             {
                 Console.WriteLine("Kérem adja meg a testsúlyát kilogrammban: ");
-                if (double.TryParse(Console.ReadLine(), out testsuly) && testsuly > 50 && testsuly <= 120)
+                if (double.TryParse(Console.ReadLine(), out testsuly) && testsuly >= 50 && testsuly <= 120)
                 {
                     break;
                 }
