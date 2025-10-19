@@ -10,6 +10,7 @@ namespace szamonkeres_domjan_andras
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World!");
         }
     }
 }
