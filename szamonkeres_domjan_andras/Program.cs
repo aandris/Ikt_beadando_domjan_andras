@@ -10,10 +10,10 @@ namespace szamonkeres_domjan_andras
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Kérem adja meg a vezetéknevét: ");
+            Console.Write("Kérem adja meg a vezetéknevét: ");
             string vezeteknev = Console.ReadLine();
 
-            Console.WriteLine("Kérem adja meg a keresztnevét: ");
+            Console.Write("Kérem adja meg a keresztnevét: ");
             string keresztnev = Console.ReadLine();
 
             string nev = vezeteknev + " " + keresztnev;
@@ -22,7 +22,7 @@ namespace szamonkeres_domjan_andras
 
             while (true)
             {
-                Console.WriteLine("Kérem adja meg a testsúlyát kilogrammban: ");
+                Console.Write("Kérem adja meg a testsúlyát kilogrammban: ");
                 if (double.TryParse(Console.ReadLine(), out testsuly) && testsuly >= 50 && testsuly <= 120)
                 {
                     break;
@@ -31,8 +31,35 @@ namespace szamonkeres_domjan_andras
                 {
                     Console.WriteLine("Hibás adat! A testsúly 50 és 120 között kell legyen.");
                 }
-
             }
-    }
+
+            Console.Write("Kérem válassza ki az edzés célját (1 - Állóképesség, 2 - Izomtömeg növelése, 3 - Fogyás):");
+            int edzescel=int.Parse(Console.ReadLine());
+
+
+            string edzesfajta="";
+            int alaphossz=0;
+
+            switch(edzescel)
+            {
+                case 1:
+                    edzesfajta = "Futás/Kerékpározás";
+                    alaphossz = 45;
+                    break;
+                case 2:
+                    edzesfajta = "Súlyzós edzés";
+                    alaphossz = 60;
+                    break;
+                case 3:
+                    edzesfajta = "Intervall edzés";
+                    alaphossz = 30;
+                    break;
+                default:
+                    edzesfajta = "Érvénytelen cél";
+                    alaphossz = 0;
+                    Console.WriteLine("Kérlek válassz ezek közül (1 - Állóképesség, 2 - Izomtömeg növelése, 3 - Fogyás):  ");
+                    break;
+            }
+        }
 }
 }
