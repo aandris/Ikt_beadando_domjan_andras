@@ -63,6 +63,20 @@ namespace szamonkeres_domjan_andras
 
             Console.WriteLine($"Edzés típusa: {edzestipus}");
             Console.WriteLine($"Alap edzésidő (perc): {alaphossz}");
+
+            int edzesnapok;
+            while (true)
+            {
+                Console.Write("Hány napot szeretne edzeni a héten? (1-7): ");
+                if (int.TryParse(Console.ReadLine(), out edzesnapok) && edzesnapok >= 1 && edzesnapok <= 7)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Hibás adat! A napok száma 1 és 7 között kell legyen.");
+                }
+            }
         }
 }
 }
