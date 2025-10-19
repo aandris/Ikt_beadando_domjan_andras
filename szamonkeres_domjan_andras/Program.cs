@@ -34,13 +34,13 @@ namespace szamonkeres_domjan_andras
             }
 
             Console.Write("Kérem válassza ki az edzés célját (1 - Állóképesség, 2 - Izomtömeg növelése, 3 - Fogyás):");
-            int edzescel=int.Parse(Console.ReadLine());
+            int edzescel = int.Parse(Console.ReadLine());
 
 
-            string edzestipus="";
-            int alaphossz=0;
+            string edzestipus = "";
+            int alaphossz = 0;
 
-            switch(edzescel)
+            switch (edzescel)
             {
                 case 1:
                     edzestipus = "Futás/Kerékpározás";
@@ -77,6 +77,30 @@ namespace szamonkeres_domjan_andras
                     Console.WriteLine("Hibás adat! A napok száma 1 és 7 között kell legyen.");
                 }
             }
-        }
-}
+
+            double heti_edzesido = 0;
+            double heti_kaloria = 0;
+
+            for (int i = 1; i <= edzesnapok; i++)
+            {
+                int erosseg;
+                while (true)
+                {
+                    Console.Write($"Adja meg az {i}. napjára az erősségi szintet (1-től 5-ig): ");
+
+                    if (int.TryParse(Console.ReadLine(), out erosseg) && erosseg >= 1 && erosseg <= 5)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hibás erősségi szint! Kérjük, adjon meg egy számot 1 és 5 között.");
+                    }
+                }
+
+            }
+
+            }
+        
+    }
 }
