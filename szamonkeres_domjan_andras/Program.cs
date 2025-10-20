@@ -78,8 +78,7 @@ namespace szamonkeres_domjan_andras
                 }
             }
 
-            double heti_edzesido = 0;
-            double heti_kaloria = 0;
+            
 
             for (int i = 1; i <= edzesnapok; i++)
             {
@@ -97,10 +96,32 @@ namespace szamonkeres_domjan_andras
                         Console.WriteLine("Hibás erősségi szint! Kérjük, adjon meg egy számot 1 és 5 között.");
                     }
                 }
-
+                double napiEdzesIdo = alaphossz * (1 + 0.1 * erosseg);
             }
 
+            double heti_edzesido = 0;
+            double heti_kaloria = 0;
+            double kaloria_szorzo = 0;
+
+            switch (edzescel)
+            {
+                case 1:
+                    kaloria_szorzo = 0.12;
+                    break;
+                case 2:
+                    kaloria_szorzo = 0.10;
+                    break;
+                case 3:
+                    kaloria_szorzo = 0.15;
+                    break;
             }
+            heti_kaloria = testsuly * heti_edzesido * kaloria_szorzo;
+        }
+
+
+       
+
+    }
         
     }
 }
