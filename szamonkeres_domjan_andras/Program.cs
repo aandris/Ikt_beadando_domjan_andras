@@ -33,11 +33,21 @@ namespace szamonkeres_domjan_andras
                 }
             }
 
-            Console.Write("Kérem válassza ki az edzés célját (1 - Állóképesség, 2 - Izomtömeg növelése, 3 - Fogyás):");
-            int edzescel = int.Parse(Console.ReadLine());
+            int edzescel;
+            while (true)
+            {
+                Console.Write("Kérem válassza ki az edzés célját (1 - Állóképesség, 2 - Izomtömeg növelése, 3 - Fogyás): ");
+                if (int.TryParse(Console.ReadLine(), out edzescel) && edzescel >= 1 && edzescel <= 3)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Hibás választás! Kérem adjon meg 1-et, 2-t vagy 3-at.");
+                }
+            }
 
-
-            string edzestipus = "";
+            string edzestipus;
             int alaphossz = 0;
 
             switch (edzescel)
@@ -61,9 +71,6 @@ namespace szamonkeres_domjan_andras
                     break;
             }
 
-            Console.WriteLine($"Edzés típusa: {edzestipus}");
-            Console.WriteLine($"Alap edzésidő (perc): {alaphossz}");
-
             int edzesnapok;
             while (true)
             {
@@ -78,7 +85,7 @@ namespace szamonkeres_domjan_andras
                 }
             }
 
-            
+            double heti_edzesido = 0; 
 
             for (int i = 1; i <= edzesnapok; i++)
             {
@@ -86,7 +93,6 @@ namespace szamonkeres_domjan_andras
                 while (true)
                 {
                     Console.Write($"Adja meg az {i}. napjára az erősségi szintet (1-től 5-ig): ");
-
                     if (int.TryParse(Console.ReadLine(), out erosseg) && erosseg >= 1 && erosseg <= 5)
                     {
                         break;
@@ -96,13 +102,12 @@ namespace szamonkeres_domjan_andras
                         Console.WriteLine("Hibás erősségi szint! Kérjük, adjon meg egy számot 1 és 5 között.");
                     }
                 }
+
                 double napiEdzesIdo = alaphossz * (1 + 0.1 * erosseg);
+                heti_edzesido += napiEdzesIdo;
             }
 
-            double heti_edzesido = 0;
-            double heti_kaloria = 0;
             double kaloria_szorzo = 0;
-
             switch (edzescel)
             {
                 case 1:
@@ -115,13 +120,15 @@ namespace szamonkeres_domjan_andras
                     kaloria_szorzo = 0.15;
                     break;
             }
-            heti_kaloria = testsuly * heti_edzesido * kaloria_szorzo;
+
+            double heti_kaloria = testsuly * heti_edzesido * kaloria_szorzo;
+
+            Console.WriteLine("\nEdzés összegzés");
+            Console.WriteLine("---------------------");
+            Console.WriteLine($"Név: {nev}");
+            Console.WriteLine($"Edzés célja: {edzestipus}");
+            Console.WriteLine($"Heti edzésidő: {heti_edzesido} perc");
+            Console.WriteLine($"Összes elégetett kalória: {heti_kaloria} kcal");
         }
-
-
-       
-
-    }
-        
     }
 }
