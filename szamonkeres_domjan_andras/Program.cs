@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace szamonkeres_domjan_andras
 {
@@ -10,11 +11,35 @@ namespace szamonkeres_domjan_andras
     {
         static void Main(string[] args)
         {
-            Console.Write("Kérem adja meg a vezetéknevét: ");
-            string vezeteknev = Console.ReadLine();
+            
+            string vezeteknev;
 
-            Console.Write("Kérem adja meg a keresztnevét: ");
-            string keresztnev = Console.ReadLine();
+            while (true)
+            {
+                Console.Write("Kérem adja meg a vezetéknevét: ");
+                vezeteknev = Console.ReadLine();
+                if (char.IsUpper(vezeteknev.Trim()[0]))
+                    break;
+                else
+                {
+                    Console.WriteLine("Hibás név! A vezetéknévnek nagybetűvel kell kezdődnie.");
+                }
+            }
+
+           
+            string keresztnev;
+
+            while (true)
+            {
+                Console.Write("Kérem adja meg a keresztnevét: ");
+                keresztnev = Console.ReadLine();
+                if (char.IsUpper(keresztnev.Trim()[0]))
+                    break;
+                else
+                {
+                    Console.WriteLine("Hibás név! A keresztnévnek nagybetűvel kell kezdődnie.");
+                }
+            }
 
             string nev = vezeteknev + " " + keresztnev;
 
@@ -23,6 +48,7 @@ namespace szamonkeres_domjan_andras
             while (true)
             {
                 Console.Write("Kérem adja meg a testsúlyát kilogrammban: ");
+           
                 if (double.TryParse(Console.ReadLine(), out testsuly) && testsuly >= 50 && testsuly <= 120)
                 {
                     break;
@@ -71,6 +97,7 @@ namespace szamonkeres_domjan_andras
                     break;
             }
 
+
             int edzesnapok;
             while (true)
             {
@@ -85,7 +112,7 @@ namespace szamonkeres_domjan_andras
                 }
             }
 
-            double heti_edzesido = 0; 
+            double heti_edzesido = 0;
 
             for (int i = 1; i <= edzesnapok; i++)
             {
