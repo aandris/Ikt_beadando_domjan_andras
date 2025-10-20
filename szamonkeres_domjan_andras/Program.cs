@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
+
 
 namespace szamonkeres_domjan_andras
 {
@@ -147,7 +147,7 @@ namespace szamonkeres_domjan_andras
                     kaloria_szorzo = 0.15;
                     break;
             }
-
+            
             double heti_kaloria = testsuly * heti_edzesido * kaloria_szorzo;
 
             Console.WriteLine("\nEdzés összegzés");
